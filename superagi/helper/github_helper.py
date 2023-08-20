@@ -334,3 +334,39 @@ class GithubHelper:
             with open(final_path, "r") as file:
                 attachment_data = file.read().decode('utf-8')
         return attachment_data
+
+    def search_repository(self, query):
+        """
+        Searches for repositories based on a given query.
+    
+        Args:
+            query (str): The search query.
+    
+        Returns:
+            list: A list of dictionaries containing information about the matching repositories.
+        """
+        url = f"https://api.github.com/search/repositories?q={query}"
+        headers = {
+                "Authorization": f"token {self.github_access_token}" if self.github_access_token else None,
+                "Content-Type": "application/vnd.github.v3+json"
+                }
+        response = requests.get(url, headers=headers)
+    
+        if response.status_code == 200:
+            search_results = response.json()
+            repositories = []
+
+            # Extract clone_url from each repository dictionary
+            for repo_info in search_results.get('items', []):
+                clone_url = repo_info.get('clone_url')
+                if clone_url:
+                    repositories.append(clone_url)
+
+            #repositories = search_results.get('items', ['clone_url'])
+            #repositories = search_results['clone_url']
+            #return search_results
+            return repositories
+        else:
+            logger.info(f"Failed to search for repositories: {response.status_code} - {response.text}")
+            return []
+
