@@ -1,0 +1,193 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package cryptoproject
+dpkg-buildpackage: info: source version 0.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Jhon do <your@email.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j12 clean
+make[1]: Entering directory '/app/crypto_project'
+rm *.o
+rm aes_client
+rm signature_client
+make[1]: Leaving directory '/app/crypto_project'
+   dh_clean
+ dpkg-source -b .
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building cryptoproject using existing ./cryptoproject_0.1.orig.tar.xz
+dpkg-source: warning: ignoring deletion of file rsa.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file aes_cbc.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file aes_cmac.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file hmac.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file signature_client.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file aes_client.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file sign.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file bignum.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file aes_client, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file aes.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file sha256.o, use --include-removal to override
+dpkg-source: warning: ignoring deletion of file signature_client, use --include-removal to override
+dpkg-source: info: building cryptoproject in cryptoproject_0.1-1.debian.tar.xz
+dpkg-source: info: building cryptoproject in cryptoproject_0.1-1.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   dh_auto_build
+	make -j12 "INSTALL=install --strip-program=true"
+make[1]: Entering directory '/app/crypto_project'
+gcc -c -Wall aes.c
+gcc -c -Wall aes_client.c
+gcc -c -Wall aes_cbc.c
+gcc -c -Wall aes_cmac.c
+gcc -c -Wall sha256.c
+gcc -c -Wall signature_client.c
+gcc -c -Wall hmac.c
+gcc -c -Wall bignum.c
+gcc -c -Wall -Wdate-time -D_FORTIFY_SOURCE=2  -c -o rsa.o rsa.c
+gcc -c -Wall sign.c
+aes_client.c: In function ‘aes_128_cbc_test’:
+aes_client.c:68:26: warning: pointer targets in initialization of ‘uint8_t *’ {aka ‘unsigned char *’} from ‘char *’ differ in signedness [-Wpointer-sign]
+   68 |     uint8_t *plaintext = teststring;
+      |                          ^~~~~~~~~~
+aes_client.c:76:28: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   76 |     plaintext_len = strlen(plaintext);
+      |                            ^~~~~~~~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from aes_client.c:4:
+/usr/include/string.h:385:35: note: expected ‘const char *’ but argument is of type ‘uint8_t *’ {aka ‘unsigned char *’}
+  385 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+aes_client.c: In function ‘aes_cmac_test’:
+aes_client.c:96:22: warning: pointer targets in initialization of ‘uint8_t *’ {aka ‘unsigned char *’} from ‘char *’ differ in signedness [-Wpointer-sign]
+   96 |     uint8_t *input = teststring;
+      |                      ^~~~~~~~~~
+aes_client.c:99:28: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   99 |     aes_cmac(input, strlen(input), key, mac);
+      |                            ^~~~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+In file included from aes_client.c:4:
+/usr/include/string.h:385:35: note: expected ‘const char *’ but argument is of type ‘uint8_t *’ {aka ‘unsigned char *’}
+  385 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+aes_cmac.c:123:13: warning: ‘print_block’ defined but not used [-Wunused-function]
+  123 | static void print_block(uint8_t *ptr)
+      |             ^~~~~~~~~~~
+signature_client.c: In function ‘sha256_test’:
+aes.c:410:13: warning: ‘print_hex’ defined but not used [-Wunused-function]
+  410 | static void print_hex(uint8_t *ptr, int len)
+      |             ^~~~~~~~~
+signature_client.c:57:25: warning: pointer targets in passing argument 2 of ‘sha256_update’ differ in signedness [-Wpointer-sign]
+   57 |     sha256_update(&ctx, message, len);
+      |                         ^~~~~~~
+      |                         |
+      |                         char *
+In file included from signature_client.c:6:
+sha256.h:19:48: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+   19 | void sha256_update(sha256_ctx_t *ctx, uint8_t *message, uint32_t len);
+      |                                       ~~~~~~~~~^~~~~~~
+signature_client.c: In function ‘hmac_sha256_test’:
+signature_client.c:72:21: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+   72 |     keylen = strlen(key);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from signature_client.c:4:
+/usr/include/string.h:385:35: note: expected ‘const char *’ but argument is of type ‘uint8_t *’ {aka ‘unsigned char *’}
+  385 | extern size_t strlen (const char *__s)
+      |                       ~~~~~~~~~~~~^~~
+signature_client.c:76:17: warning: pointer targets in passing argument 1 of ‘hmac_sha256’ differ in signedness [-Wpointer-sign]
+   76 |     hmac_sha256(message, msglen, key, keylen, mac);
+      |                 ^~~~~~~
+      |                 |
+      |                 char *
+In file included from signature_client.c:7:
+hmac.h:5:27: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+    5 | void hmac_sha256(uint8_t *data, unsigned long length, uint8_t *key, unsigned int keylen, uint8_t *mac_value);
+      |                  ~~~~~~~~~^~~~
+sign.c: In function ‘sign’:
+sign.c:15:25: warning: pointer targets in passing argument 2 of ‘sha256_update’ differ in signedness [-Wpointer-sign]
+   15 |     sha256_update(&ctx, message, len);
+      |                         ^~~~~~~
+      |                         |
+      |                         char *
+In file included from sign.c:1:
+sha256.h:19:48: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+   19 | void sha256_update(sha256_ctx_t *ctx, uint8_t *message, uint32_t len);
+      |                                       ~~~~~~~~~^~~~~~~
+sign.c: In function ‘verify’:
+sign.c:34:25: warning: pointer targets in passing argument 2 of ‘sha256_update’ differ in signedness [-Wpointer-sign]
+   34 |     sha256_update(&ctx, message, len);
+      |                         ^~~~~~~
+      |                         |
+      |                         char *
+In file included from sign.c:1:
+sha256.h:19:48: note: expected ‘uint8_t *’ {aka ‘unsigned char *’} but argument is of type ‘char *’
+   19 | void sha256_update(sha256_ctx_t *ctx, uint8_t *message, uint32_t len);
+      |                                       ~~~~~~~~~^~~~~~~
+gcc aes_client.o aes.o aes_cbc.o aes_cmac.o -o aes_client
+gcc sha256.o signature_client.o hmac.o rsa.o bignum.o sign.o -o signature_client
+make[1]: Leaving directory '/app/crypto_project'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+   dh_prep
+   dh_auto_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_dwz -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: Depends field of package cryptoproject: substitution variable ${shlibs:Depends} used, but is not defined
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'cryptoproject' in '../cryptoproject_0.1-1_amd64.deb'.
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../cryptoproject_0.1-1_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build .
+dpkg-buildpackage: info: full upload (original source is included)
+Now running lintian cryptoproject_0.1-1_amd64.changes ...
+warning: running with root privileges is not recommended!
+E: cryptoproject: changelog-is-dh_make-template
+E: cryptoproject: copyright-contains-dh_make-todo-boilerplate
+E: cryptoproject source: debian-rules-is-dh_make-template
+E: cryptoproject: description-is-dh_make-template
+E: cryptoproject: helper-templates-in-copyright
+E: cryptoproject source: readme-source-is-dh_make-template
+E: cryptoproject: section-is-dh_make-template
+W: cryptoproject source: bad-homepage <insert the upstream URL, if relevant>
+W: cryptoproject: bad-homepage <insert the upstream URL, if relevant>
+W: cryptoproject: copyright-has-url-from-dh_make-boilerplate
+W: cryptoproject source: dh-make-template-in-source debian/cryptoproject.cron.d.ex
+W: cryptoproject source: dh-make-template-in-source debian/cryptoproject.doc-base.EX
+W: cryptoproject source: dh-make-template-in-source debian/manpage.1.ex
+W: cryptoproject source: dh-make-template-in-source debian/manpage.sgml.ex
+W: cryptoproject source: dh-make-template-in-source debian/manpage.xml.ex
+W: cryptoproject source: dh-make-template-in-source debian/postinst.ex
+W: cryptoproject source: dh-make-template-in-source debian/postrm.ex
+W: cryptoproject source: dh-make-template-in-source debian/preinst.ex
+W: cryptoproject source: dh-make-template-in-source debian/prerm.ex
+W: cryptoproject source: dh-make-template-in-source debian/salsa-ci.yml.ex
+W: cryptoproject source: dh-make-template-in-source debian/watch.ex
+W: cryptoproject: empty-binary-package
+W: cryptoproject: initial-upload-closes-no-bugs
+W: cryptoproject: readme-debian-contains-debmake-template
+W: cryptoproject source: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>
+W: cryptoproject: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>
+W: cryptoproject: wrong-bug-number-in-closes #nnnn in the installed changelog (line 3)
+Finished running lintian.

@@ -34,7 +34,6 @@ class GithubRepoCloneTool(BaseTool):
         Returns:
         """
 #        try:
-        print("\n\n\n\n\nTOTO\n\n\n\n\n")
         print(clone_url)
         # Use subprocess to execute the 'git clone' command
         result = subprocess.run(["git", "clone", clone_url], check=True)

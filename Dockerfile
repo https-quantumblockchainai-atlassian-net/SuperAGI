@@ -24,7 +24,7 @@ FROM python:3.10-slim-bullseye AS build-image
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install git build-essential dh-make devscripts -y && \
+    apt-get install git build-essential dh-make devscripts debhelper -y && \
     apt-get install --no-install-recommends -y libpq-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -33,4 +33,8 @@ COPY --from=compile-image /opt/venv /opt/venv
 COPY --from=compile-image /app /app
 COPY --from=compile-image /root/nltk_data /root/nltk_data
 
-ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="/opt/venv/bin:/bin:/sbin:$PATH"
+ENV DEBEMAIL=test@toto.com \
+    DEBFULLNAME="Jhon do" \
+    LOGNAME=DEBMAIL \
+    USER=DEBFULLNAME \

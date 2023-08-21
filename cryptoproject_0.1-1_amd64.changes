@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Mon, 21 Aug 2023 05:16:49 +0000
+Source: cryptoproject
+Binary: cryptoproject
+Architecture: source amd64
+Version: 0.1-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Jhon do <your@email.com>
+Changed-By: Jhon do <your@email.com>
+Description:
+ cryptoproject - <insert up to 60 chars description>
+Changes:
+ cryptoproject (0.1-1) unstable; urgency=medium
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1:
+ 416d872179c02b9b25c1bd5a60ecbc46945ac8b2 856 cryptoproject_0.1-1.dsc
+ be2689fbe0f8d202b8892a9f70e3e39acef66b45 83308 cryptoproject_0.1.orig.tar.xz
+ 5eebdedeed926b44a7222d53f78cbcbc894308e8 7800 cryptoproject_0.1-1.debian.tar.xz
+ e3088c72871ae0e11a3ff09bd94700f766e78bb7 5104 cryptoproject_0.1-1_amd64.buildinfo
+ 5daee1b83615c899264abcab34db7b6225128c80 2208 cryptoproject_0.1-1_amd64.deb
+Checksums-Sha256:
+ 6b8ba8e878fa282d24343e1c3c9a6e5934fecf52a7e6f08ed0c773d3489d2a09 856 cryptoproject_0.1-1.dsc
+ 9d8e09de2b528b9a9b1a55457dd9cd075bf3f0825d6ae27b253db514ffe89686 83308 cryptoproject_0.1.orig.tar.xz
+ d45eceb5af415c3c8970ff51f5cc4b86eda1c42282a883a3304e2932ecbcf809 7800 cryptoproject_0.1-1.debian.tar.xz
+ 54f7907ebb4d9e481654a903f293d9f0807986e6f9ce14cdac92b9ed91ec81a3 5104 cryptoproject_0.1-1_amd64.buildinfo
+ ac43a8ff60e7651bede1810f6565130431692545a356696d301e2daa571369b7 2208 cryptoproject_0.1-1_amd64.deb
+Files:
+ 0fcecd1099a67811af16c0b529cfb932 856 unknown optional cryptoproject_0.1-1.dsc
+ 3a7c4ea4c20468a0bb3b50a7c44bf2bd 83308 unknown optional cryptoproject_0.1.orig.tar.xz
+ e6be198f6b75448a2bd3335ec913fb8d 7800 unknown optional cryptoproject_0.1-1.debian.tar.xz
+ 3d01606851fc0393126c05ae650078a4 5104 unknown optional cryptoproject_0.1-1_amd64.buildinfo
+ e311efc37f2ac8c013228bb8bf34e05f 2208 unknown optional cryptoproject_0.1-1_amd64.deb
