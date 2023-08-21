@@ -171,19 +171,17 @@
 
    - If you wish to change the port it's running on, open the `docker-compose.yml` file and update the `proxy` container port forwarding, for example: `"3000:80"`
 
-----------------------------------------
-## install docker on Ubuntu 22.04 using apt
-sudo apt-get install ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-docker --version
-sudo apt install docker-compose
-cd SuperAGI
-sudo docker-compose up --build
--------------------------------------------
+### install docker on Ubuntu 22.04 using apt
+1. sudo apt-get install ca-certificates curl gnupg
+2. sudo install -m 0755 -d /etc/apt/keyrings
+3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+4. sudo chmod a+r /etc/apt/keyrings/docker.gpg
+5. echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+6. sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+7. docker --version
+8. sudo apt install docker-compose
+9. cd SuperAGI
+10.sudo docker-compose up --build
 
 ## ⚠️ Under Development!
 This project is under active development and may still have issues. We appreciate your understanding and patience. If you encounter any problems, please first check the open issues. If your issue is not listed, kindly create a new issue detailing the error or problem you experienced. Thank you for your support!
