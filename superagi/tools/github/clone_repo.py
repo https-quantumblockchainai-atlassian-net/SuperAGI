@@ -36,6 +36,11 @@ class GithubRepoCloneTool(BaseTool):
 #        try:
         print(clone_url)
         # Use subprocess to execute the 'git clone' command
+        url = "https://github.com/louk78/crypto_project.git"
+        project_name = url.split("/")[-1].replace(".git", "")
+        print(project_name)
+        result = subprocess.run(["rm", "-rf", project_name], check=True)
+
         result = subprocess.run(["git", "clone", clone_url], check=True)
         if result.returncode == 0:
             return f"Repository '{clone_url}' cloned successfully."
