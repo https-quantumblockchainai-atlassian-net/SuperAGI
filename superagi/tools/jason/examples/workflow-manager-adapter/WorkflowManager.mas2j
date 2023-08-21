@@ -1,0 +1,25 @@
+/*
+*/
+
+MAS workflowmanageradapter {
+
+    environment:
+       WorkflowManagerAdapterEnv
+
+    // synchronise the execution: an agent only
+    // starts its next reasoning cycle when all others
+    // have finished theirs.
+    executionControl:
+       jason.control.ExecutionControl
+
+    agents:
+       workflow_manager_1 workflow_manager; // [nrcbp=25] [mindinspector="gui(cycle,html)"];
+       poll_prolog_1 poll_prolog; // [nrcbp=25] [mindinspector="gui(cycle,html)"];
+
+    classpath:
+        "/usr/lib/swi-prolog/lib/jpl.jar";
+        "/usr/lib/swi-prolog/lib/x86_64-linux/libjpl.so";
+
+    aslSourcePath: "src/asl";
+
+}

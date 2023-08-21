@@ -1,0 +1,26 @@
+/*
+/var/lib/myfrdcsa/collaborative/git/jason/examples/metaplanner-adapter/src/asl/ef_agent.asl
+*/
+
+MAS metaplanneradapter {
+
+    environment:
+       MetaplannerAdapterEnv
+
+    // synchronise the execution: an agent only
+    // starts its next reasoning cycle when all others
+    // have finished theirs.
+    executionControl:
+       jason.control.ExecutionControl
+
+    agents:
+       metaplanner_1 metaplanner; // [nrcbp=25] [mindinspector="gui(cycle,html)"];
+       poll_prolog_1 poll_prolog; // [nrcbp=25] [mindinspector="gui(cycle,html)"];
+
+    classpath:
+        "/usr/lib/swi-prolog/lib/jpl.jar";
+        "/usr/lib/swi-prolog/lib/x86_64-linux/libjpl.so";
+
+    aslSourcePath: "src/asl";
+
+}
