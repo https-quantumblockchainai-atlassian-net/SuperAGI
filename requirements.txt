@@ -86,7 +86,7 @@ openapi-schema-pydantic==1.2.4
 orjson==3.8.14
 packaging==23.1
 parse==1.19.0
-Pillow==9.5.0
+Pillow==10.3.0
 pinecone-client==2.2.1
 prompt-toolkit==3.0.38
 psycopg2==2.9.6
@@ -148,7 +148,7 @@ pytest-mock==3.11.1
 transformers==4.30.2
 pypdf==3.11.0
 python-pptx==0.6.21
-Pillow==9.5.0
+Pillow==10.3.0
 EbookLib==0.18
 html2text==2020.1.16
 duckduckgo-search==3.8.3 
