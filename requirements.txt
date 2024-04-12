@@ -28,7 +28,7 @@ chromadb==0.3.26
 dataclasses-json==0.5.7
 defusedxml==0.7.1
 docx2txt==0.8
-dnspython==2.3.0
+dnspython==2.6.1
 email-validator==2.0.0.post2
 exceptiongroup==1.1.1
 fake-useragent==1.1.3
