@@ -91,7 +91,7 @@ pinecone-client==2.2.1
 prompt-toolkit==3.0.38
 psycopg2==2.9.6
 pycparser==2.21
-pydantic==1.10.8
+pydantic==1.10.13
 PyJWT==1.7.1
 PyPDF2==3.0.1
 pyquery==2.0.0
