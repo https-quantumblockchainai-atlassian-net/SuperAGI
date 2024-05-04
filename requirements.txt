@@ -123,7 +123,7 @@ termcolor==2.3.0
 tiktoken==0.4.0
 tinysegmenter==0.3
 tldextract==3.4.4
-tqdm==4.65.0
+tqdm==4.66.3
 tweepy==4.14.0
 typing-inspect==0.8.0
 ujson==5.7.0
