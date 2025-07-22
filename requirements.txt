@@ -116,7 +116,7 @@ six==1.16.0
 sniffio==1.3.0
 soupsieve==2.4.1
 spinners==0.0.24
-starlette==0.27.0
+starlette==0.47.2
 SQLAlchemy==2.0.16
 tenacity==8.2.2
 termcolor==2.3.0
