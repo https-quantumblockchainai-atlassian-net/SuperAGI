@@ -37,7 +37,7 @@ fastapi-jwt-auth==0.5.0
 FastAPI-SQLAlchemy==0.2.1
 feedfinder2==0.0.4
 feedparser==6.0.10
-filelock==3.12.0
+filelock==3.20.1
 frozenlist==1.3.3
 google-search-results==2.4.2
 google-serp-api==1.0.3
@@ -71,7 +71,7 @@ loguru==0.7.0
 lxml==4.9.2
 Mako==1.2.4
 MarkupSafe==2.1.2
-marshmallow==3.19.0
+marshmallow==3.26.2
 marshmallow-enum==1.5.1
 multidict==6.0.4
 mypy-extensions==1.0.0
